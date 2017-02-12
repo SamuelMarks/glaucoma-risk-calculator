@@ -1,0 +1,10 @@
+.alert-stock {
+  background-color: #ffcc9a;
+  border-color: #ffcc9a;
+  color: whitesmoke;
+}
+
+body {
+  background-color: #ffcc9a;
+  padding-top: 50px;
+}
