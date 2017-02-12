@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class FrontendAngular2ScaffoldPage {
+export class GlaucomaRiskCalcWebFrontendPage {
   navigateTo() {
     return browser.get('/');
   }

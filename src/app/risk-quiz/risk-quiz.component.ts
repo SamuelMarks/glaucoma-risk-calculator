@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import 'rxjs/add/observable/of';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IRiskQuiz } from './risk-quiz.model';
-import { ModalDirective, ComponentsHelper } from 'ng2-bootstrap';
-import { ViewContainerRef } from '@angular/core';
+import { ModalDirective } from 'ng2-bootstrap';
 
 @Component({
   selector: 'app-risk-quiz',
@@ -15,19 +15,18 @@ export class RiskQuizComponent implements OnInit {
   public ocular_diseases: Array<string> = [
     'trauma', 'inflammation', 'pseudoexfoliation', 'pigment dispersion syndrome'
   ];
+  public ocular_surgeries: Array<string> = [
+    'retinal detachment', 'corneal transplant', 'congenital cataracts'
+  ];
 
-  @ViewChild('childModal') public childModal:ModalDirective;
+  @ViewChild('childModal') public childModal: ModalDirective;
 
-  public showChildModal():void {
+  public showChildModal(): void {
     this.childModal.show();
   }
 
-  public hideChildModal():void {
+  public hideChildModal(): void {
     this.childModal.hide();
-  }
-
-  constructor(private componentsHelper: ComponentsHelper, private vcr: ViewContainerRef) {
-    componentsHelper.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {

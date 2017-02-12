@@ -1,10 +1,8 @@
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
-const routes: Routes = [
-  {path: '', loadChildren: 'app/home/home.module'},
-  {path: 'login-signup', loadChildren: 'app/login-signup/login-signup.module'}
-  /*,
-   {path: 'dynamic-renderer', loadChildren: 'app/dynamic-renderer/dynamic-renderer.module'}*/
+export const rootRoutes: Routes = [
+  {path: '', loadChildren: 'app/home/home.module#HomeModule'},
+  {path: 'login-signup', loadChildren: 'app/login-signup/login-signup.module#LoginSignupModule'}
 ];
 
-export default RouterModule.forRoot(routes);
+//export default RouterModule.forRoot(routes);

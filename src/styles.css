@@ -1,10 +1,9 @@
-.alert-stock {
-  background-color: #ffcc9a;
-  border-color: #ffcc9a;
-  color: whitesmoke;
+/* You can add global styles to this file, and also import other style files */
+
+.dropdown-menu {
+  display: block;
 }
 
-body {
-  background-color: #ffcc9a;
-  padding-top: 50px;
+a {
+  outline: 0;
 }

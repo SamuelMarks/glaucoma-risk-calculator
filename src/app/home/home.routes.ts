@@ -1,8 +1,9 @@
-import {RouterModule} from "@angular/router";
-import {HomeComponent} from "./home.component";
-const routes = [
-    {path: '', component: HomeComponent}
+import { Routes } from '@angular/router';
+import { HomeComponent } from './home.component';
+
+export const homeRoutes: Routes = [
+  {path: '', component: HomeComponent}
 ];
 
 
-export default RouterModule.forChild(routes);
+//export default RouterModule.forChild(routes);

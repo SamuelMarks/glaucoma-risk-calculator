@@ -1,8 +1,8 @@
-import {RouterModule, Routes} from '@angular/router';
-import {LoginSignupComponent} from './login-signup.component';
+import { Routes } from '@angular/router';
+import { LoginSignupComponent } from './login-signup.component';
 
-const routes: Routes = [
+export const loginSignupRoutes: Routes = [
   {path: '', component: LoginSignupComponent}
 ];
 
-export default RouterModule.forChild(routes);
+//export default RouterModule.forChild(routes);

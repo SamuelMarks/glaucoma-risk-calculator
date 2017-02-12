@@ -7,19 +7,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
-var server_status_service_1 = require("../api/server-status.service");
-var server_status_component_1 = require("./server-status.component");
-var ServerStatusModule = (function () {
-    function ServerStatusModule() {
+var alerts_component_1 = require("./alerts.component");
+var ng2_bootstrap_1 = require("ng2-bootstrap");
+var AlertsModule = (function () {
+    function AlertsModule() {
     }
-    return ServerStatusModule;
+    return AlertsModule;
 }());
-ServerStatusModule = __decorate([
+AlertsModule = __decorate([
     core_1.NgModule({
-        imports: [common_1.CommonModule],
-        providers: [server_status_service_1.ServerStatusService],
-        declarations: [server_status_component_1.ServerStatusComponent],
-        exports: [server_status_component_1.ServerStatusComponent]
+        imports: [
+            common_1.CommonModule, ng2_bootstrap_1.AlertModule
+        ],
+        declarations: [alerts_component_1.AlertsComponent],
+        exports: [alerts_component_1.AlertsComponent]
     })
-], ServerStatusModule);
-exports.ServerStatusModule = ServerStatusModule;
+], AlertsModule);
+exports.AlertsModule = AlertsModule;

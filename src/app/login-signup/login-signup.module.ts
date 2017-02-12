@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonsModule } from 'ng2-bootstrap/components/buttons';
+import { RouterModule } from '@angular/router';
+import { ButtonsModule } from 'ng2-bootstrap';
 import { LoginSignupComponent } from './login-signup.component';
-import loginSignupRoutes from './login-signup.routes';
 import { AuthService } from '../api/auth/auth.service';
+import { loginSignupRoutes } from './login-signup.routes';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule, loginSignupRoutes, ButtonsModule],
+  imports: [CommonModule, FormsModule, RouterModule.forChild(loginSignupRoutes), ButtonsModule],
   providers: [AuthService],
   declarations: [LoginSignupComponent]
 })
 
-export default class LoginSignupModule {
+export class LoginSignupModule {
 }

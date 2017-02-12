@@ -1,10 +1,10 @@
-import { FrontendAngular2ScaffoldPage } from './app.po';
+import { GlaucomaRiskCalcWebFrontendPage } from './app.po';
 
-describe('stockrankr-web-frontend App', function() {
-  let page: FrontendAngular2ScaffoldPage;
+describe('glaucoma-risk-calc-web-frontend App', function() {
+  let page: GlaucomaRiskCalcWebFrontendPage;
 
   beforeEach(() => {
-    page = new FrontendAngular2ScaffoldPage();
+    page = new GlaucomaRiskCalcWebFrontendPage();
   });
 
   it('should display message saying app works', () => {

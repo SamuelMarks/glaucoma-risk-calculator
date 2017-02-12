@@ -7,19 +7,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
-var server_status_service_1 = require("../api/server-status.service");
-var server_status_component_1 = require("./server-status.component");
-var ServerStatusModule = (function () {
-    function ServerStatusModule() {
+var risk_quiz_component_1 = require("./risk-quiz.component");
+var forms_1 = require("@angular/forms");
+var ng2_select_1 = require("ng2-select");
+var ng2_bootstrap_1 = require("ng2-bootstrap");
+var RiskQuizModule = (function () {
+    function RiskQuizModule() {
     }
-    return ServerStatusModule;
+    return RiskQuizModule;
 }());
-ServerStatusModule = __decorate([
+RiskQuizModule = __decorate([
     core_1.NgModule({
-        imports: [common_1.CommonModule],
-        providers: [server_status_service_1.ServerStatusService],
-        declarations: [server_status_component_1.ServerStatusComponent],
-        exports: [server_status_component_1.ServerStatusComponent]
+        imports: [
+            common_1.CommonModule, forms_1.FormsModule, ng2_select_1.SelectModule, ng2_bootstrap_1.ModalModule
+        ],
+        declarations: [risk_quiz_component_1.RiskQuizComponent],
+        exports: [risk_quiz_component_1.RiskQuizComponent]
     })
-], ServerStatusModule);
-exports.ServerStatusModule = ServerStatusModule;
+], RiskQuizModule);
+exports.RiskQuizModule = RiskQuizModule;

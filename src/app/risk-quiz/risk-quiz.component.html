@@ -30,6 +30,7 @@
   </div>
   <div class="form-group">
     <h6>Previous history of ocular disease</h6>
+
     <ng-select (data)="ocular_diseases_selected($event)"
                [multiple]=true
                [items]="ocular_diseases"
@@ -40,6 +41,7 @@
   <div class="form-group">
     <label for="ocularSurgeries">Previous history of ocular surgery</label>
     <small class="form-text text-muted">Ctrl + select to choose multiple</small>
+
     <select multiple class="form-control"
             id="ocularSurgeries" name="ocularSurgeries" [(ngModel)]="model.ocular_surgery_history">
       <option>retinal detachment</option>

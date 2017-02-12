@@ -10,5 +10,5 @@ import { ServerStatusComponent } from './server-status.component';
   exports: [ServerStatusComponent]
 })
 
-export default class ServerStatusModule {
+export class ServerStatusModule {
 }
