@@ -15,12 +15,13 @@ import { AppService } from './app.service';
 import { RouterModule } from '@angular/router';
 import { NavbarModule } from './navbar/navbar.module';
 import { HomeModule } from './home/home.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 
 @NgModule({
   imports: [
     HomeModule, RouterModule, RouterModule.forRoot(rootRoutes),
-    BrowserModule, HttpModule, FormsModule,
+    BrowserModule, HttpModule, FormsModule, DashboardModule,
     ServerStatusModule, AlertsModule, RiskQuizModule, NavbarModule],
   declarations: [AppComponent, FooterComponent],
   providers: [AuthService, AuthGuard, AlertsService, AppService],

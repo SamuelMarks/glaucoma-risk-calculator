@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AuthService } from './api/auth/auth.service';
 import { AppService } from './app.service';
 import { AlertsService } from './alerts/alerts.service';
-import { AlertsModule } from './alerts/alerts.module';
 
 @Component({
   selector: 'app',
@@ -12,12 +11,7 @@ import { AlertsModule } from './alerts/alerts.module';
 export class AppComponent {
   constructor(public authService: AuthService,
               public appService: AppService,
-              public alertsService: AlertsService,
-              public alertsModule: AlertsModule) {
-  }
-
-  logout() {
-    this.authService.del(this.authService.getAccessToken()).then(null).catch(null);
+              public alertsService: AlertsService) {
   }
 
   addAlert() {

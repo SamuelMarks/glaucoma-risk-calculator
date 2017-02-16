@@ -14,7 +14,7 @@ var AuthGuard = (function () {
     AuthGuard.prototype.canActivate = function () {
         if (!this.auth.isLoggedIn()) {
             console.info('You aren\'t logged in!');
-            this.router.navigate(['']);
+            this.router.navigate(['login-signup']);
             return false;
         }
         return true;

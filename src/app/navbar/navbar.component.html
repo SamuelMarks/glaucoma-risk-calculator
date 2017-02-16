@@ -6,8 +6,15 @@
   <a class="navbar-brand" href="/" routerLinkActive="active"
      [routerLinkActiveOptions]="{exact:true}">Glaucoma Risk Calculator</a>
   <div id="navbar">
-    <nav class="nav navbar-nav float-xs-left">
-      <a class="nav-item nav-link" routerLinkActive="active" routerLink="login-signup">Login/signup</a>
+    <nav class="nav navbar-nav float-xs-left" *ngIf="!authService.isLoggedIn()">
+      <a class="nav-item nav-link" routerLinkActive="active"
+         routerLink="login-signup">Login/signup</a>
+    </nav>
+    <nav class="nav navbar-nav float-xs-left" *ngIf="authService.isLoggedIn()">
+      <a class="nav-item nav-link" routerLinkActive="active"
+         routerLink="admin/dashboard">Dashboard</a>
+      <button class="a nav-item nav-link"
+         (click)="logout()">Logout</button>
     </nav>
   </div>
 </nav>
