@@ -20,12 +20,23 @@
       "prefix": "app",
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/tinymce/skins/lightgray/skin.min.css",
+        "../node_modules/tinymce/skins/lightgray/content.min.css",
+        "../node_modules/tinymce/skins/lightgray/content.inline.min.css",
         "../src/assets/css/ng2-select.css",
+        "../src/assets/fonts/css/animation.css",
+        "../src/assets/fonts/css/fontello-codes.css",
+        "../src/assets/fonts/css/fontello.css",
+        "../src/assets/fonts/css/fontello-embedded.css",
+        "../src/assets/fonts/css/fontello-ie7-codes.css",
+        "../src/assets/fonts/css/fontello-ie7.css",
         "styles.css"
       ],
-      "scripts": [],
+      "addons": [
+        "../src/assets/fonts/font/*.+(otf|eot|svg|ttf|woff|woff2)"
+      ],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }

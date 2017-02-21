@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../api/auth/auth.service';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
-
-  constructor(private authService: AuthService) {
+export class DashboardComponent {
+  constructor(private router: Router) {
   }
 
-  ngOnInit() {
-    this.authService.redirUnauth('admin/dashboard');
+  goto(to: string) {
+    this.router.navigate([to]).then(
+      success => success && console.info('state changed') || console.info('state didn\'t change'),
+      error => console.error(error)
+    );
   }
 }

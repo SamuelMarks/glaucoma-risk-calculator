@@ -6,6 +6,7 @@ import { AccessToken } from './access-token';
 import { Observable } from 'rxjs';
 import { AlertsService } from '../../alerts/alerts.service';
 import { Router } from '@angular/router';
+import { handleError, extractData } from '../service-utils';
 
 @Injectable()
 export class AuthService {
@@ -49,8 +50,8 @@ export class AuthService {
         this.accessToken = response.headers.get('x-access-token');
         return response
       })
-      .map(AuthService.extractData)
-      .catch(AuthService.handleError);
+      .map(extractData)
+      .catch(handleError);
   }
 
   del(): Observable<Response> {
@@ -60,9 +61,7 @@ export class AuthService {
       localStorage.removeItem('access-token');
     };
 
-    if (this.headers.has('x-access-token'))
-      this.headers.delete('x-access-token');
-    this.headers.append('x-access-token', this.accessToken);
+    this.headers.set('x-access-token', this.accessToken);
     if (!this.headers.get('x-access-token')) return Observable.throw('No access token');
 
     const options = new RequestOptions({headers: this.headers});
@@ -79,26 +78,9 @@ export class AuthService {
       .catch((error: Response) => {
         logout();
         console.error(error.json());
-        return AuthService.handleError(error)
+        return handleError(error)
       })
   }
 
-  private static extractData(res: Response) {
-    const body = res.json();
-    return body.data || {};
-  }
 
-  private static handleError(error: Response | any) {
-    // In a real world app, we might use a remote logging infrastructure
-    let errMsg: string;
-    if (error instanceof Response) {
-      const body = error.json() || '';
-      const err = body.error || JSON.stringify(body);
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-    } else {
-      errMsg = error.message ? error.message : error.toString();
-    }
-    console.error(errMsg);
-    return Observable.throw(errMsg);
-  }
 }
