@@ -21,13 +21,19 @@ export class RichTextComponent implements AfterViewInit, OnInit, OnDestroy {
   editor;
 
   ngOnInit() {
-    this.emailTplService.hasTpl() || this.emailTplService.read('latest').subscribe(
-      email_tpl => this.emailTplService.email_tpl = email_tpl,
-      error => console.error(error)
-    );
   }
 
   ngAfterViewInit() {
+    this.emailTplService.hasTpl() ? this.init() : this.emailTplService.read('latest').subscribe(
+        email_tpl => {
+          this.emailTplService.email_tpl = email_tpl;
+          this.init();
+        },
+        error => console.error(error) && this.init()
+      )
+  }
+
+  private init() {
     tinymce.init({
       selector: `#${this.elementId}`,
       //plugins: ['link', 'paste', 'table'],
