@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
-import { User } from './user';
-import { AccessToken } from './access-token';
-import { Observable } from 'rxjs';
-import { AlertsService } from '../../alerts/alerts.service';
 import { Router } from '@angular/router';
-import { handleError, extractData } from '../service-utils';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/toPromise';
+import { AlertsService } from '../../alerts/alerts.service';
+import { handleError } from '../service-utils';
+import { AccessToken } from './access-token';
+import { User } from './user';
 
 @Injectable()
 export class AuthService {
@@ -48,13 +48,14 @@ export class AuthService {
     return this.http.post('/api/auth', JSON.stringify(user), options)
       .map(response => {
         this.accessToken = response.headers.get('x-access-token');
-        return response
+        return response.json()
       })
-      .map(extractData)
       .catch(handleError);
   }
 
-  del(): Observable<Response> {
+  del(redirect_uri?: string): Observable<Response> {
+    this.redirect_uri = redirect_uri;
+
     const logout = () => {
       this.accessToken = null;
       delete this._accessToken;
@@ -82,5 +83,8 @@ export class AuthService {
       })
   }
 
-
+  redirOnResIfUnauth(error) {
+    return error.error_message && error.error_message === "Nothing associated with that access token" && this.del(window.location.hash).subscribe(
+        _ => this.router.navigateByUrl('/login-signup'), console.error)
+  }
 }

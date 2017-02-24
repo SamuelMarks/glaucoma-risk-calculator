@@ -1,11 +1,9 @@
-///<reference path="server-status/server-status.module.ts"/>
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { rootRoutes } from './app.routes';
-//import { ServerStatusModule } from './server-status/server-status.module';
 import { AlertsModule } from './alerts/alerts.module';
 import { RiskQuizModule } from './risk-quiz/risk-quiz.module';
 import { AppComponent } from './app.component';
@@ -25,9 +23,9 @@ import { FooterModule } from './footer/footer.module';
   imports: [
     RouterModule, RouterModule.forRoot(rootRoutes),
     BrowserModule, HttpModule, FormsModule,
-    FooterModule, HomeModule,
-    UsersModule, DashboardModule, EmailModule,
-    AlertsModule, RiskQuizModule, NavbarModule],
+    FooterModule, HomeModule, UsersModule,
+    DashboardModule, EmailModule, AlertsModule,
+    RiskQuizModule, NavbarModule],
   declarations: [AppComponent],
   providers: [AuthService, AuthGuard, AlertsService, AppService],
   bootstrap: [AppComponent]

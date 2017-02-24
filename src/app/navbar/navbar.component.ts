@@ -21,7 +21,7 @@ export class NavbarComponent {
               {msg: 'state didn\'t change', type: 'warning'}),
         err => this.alertsService.alerts.push({msg: err, type: 'danger'})
       ),
-      error => console.error(error)
+      console.error
     );
   }
 }

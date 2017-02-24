@@ -51,7 +51,6 @@ export class EmailTplComponent implements OnInit {
   }
 
   private handleEmailTpl(email_tpl: IEmailTpl) {
-    console.info('handleEmailTpl::email_tpl =', email_tpl);
     this.emailTplService.email_tpl = email_tpl;
   }
 

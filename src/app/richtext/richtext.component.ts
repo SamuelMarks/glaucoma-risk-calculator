@@ -40,20 +40,14 @@ export class RichTextComponent implements AfterViewInit, OnInit, OnDestroy {
       skin_url: 'assets/skins/lightgray',
       setup: editor => {
         this.editor = editor;
-        console.info(editor);
-        //tinymce.setContent(this.richTextService.content);
-        tinymce.execCommand('mceRepaint');
-        //this.editor.activeEditor.setContent(this.richTextService.content);
         editor.on('init', ed2 => {
           if (this.emailTplService.hasTpl()) {
             ed2.target.setContent(this.emailTplService.email_tpl.tpl);
-            console.info('ngAfterViewInit::setup::on::init::hasTpl');
           }
         });
         editor.on('keyup change', () => {
           this.zone.run(() => {
             const content = editor.getContent();
-            console.info('emitting: ', content);
             this.emailTplService.email_tpl.tpl = content;
             this.onEditorKeyup.emit(content);
           });

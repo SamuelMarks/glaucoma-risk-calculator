@@ -1,11 +1,6 @@
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs';
 
-export function extractData(res: Response) {
-  const body = res.json();
-  return body.data || {};
-}
-
 export function handleError(error: Response | any) {
   // In a real world app, we might use a remote logging infrastructure
   let errMsg: string;

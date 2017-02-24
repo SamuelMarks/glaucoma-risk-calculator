@@ -8,13 +8,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <button class="btn btn-block btn-outline-primary" (click)="goto('admin/email')">
+      <a class="btn btn-block btn-outline-primary" routerLink="/admin/email" routerLinkActive="active">
         <i class="icon-mail"></i> Manage email
-      </button>
+      </a>
       <p>Edit email template, modify authentication details</p>
     </div>
     <div class="col-md-6">
-      <button class="btn btn-block btn-outline-danger" (click)="goto('admin/users')">>
+      <button class="btn btn-block btn-outline-danger" routerLink="/admin/users" routerLinkActive="active">
         <i class="icon-users"></i>Manage users</button>
       <p>View, make, edit and remove users</p>
     </div>
